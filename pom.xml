@@ -7,10 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>java-maven-app</artifactId>
     <version>2.1.0-SNAPSHOT</version>
-    <distributionManagement>         
-    <repository>
-  <id>anshikasaxena0912</id>
-  <url>https://pkgs.dev.azure.com/anshikasaxena0912/_packaging/anshikasaxena0912/maven/v1</url>         
+    <distributionManagement>              
   <id>maven</id>
   <url>https://pkgs.dev.azure.com/srivasarjit/81917c9c-65c2-440f-aac5-b4aa4454b50a/_packaging/maven/maven/v1</url>
   <releases>
