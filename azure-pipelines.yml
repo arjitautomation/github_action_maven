@@ -35,4 +35,11 @@ steps:
     sqMavenPluginVersionChoice: 'latest'
 - task: SonarCloudPublish@1
   inputs:
-    pollingTimeoutSec: '300'    
+    pollingTimeoutSec: '300'
+
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'data'
+    downloadPath: '$(System.ArtifactsDirectory)'
