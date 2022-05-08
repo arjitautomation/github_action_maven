@@ -34,7 +34,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-    goals: 'build'
+    goals: 'deploy'
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
