@@ -39,9 +39,8 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-- task: DownloadBuildArtifacts@1
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish pipeline artifact'
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'data'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    artifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
