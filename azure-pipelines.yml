@@ -35,6 +35,10 @@ steps:
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
     goals: 'deploy'
+
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'DevOps'
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
