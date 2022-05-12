@@ -35,13 +35,12 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
-
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
   inputs:
     artifactName: 'drop'
     targetPath: '$(Build.ArtifactStagingDirectory)'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
