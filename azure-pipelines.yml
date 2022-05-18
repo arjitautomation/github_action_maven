@@ -21,16 +21,13 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
+    #sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
     goals: 'deploy'
 
 - task: MavenAuthenticate@0
   inputs:
     artifactsFeeds: 'DevOps'
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
