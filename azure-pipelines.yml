@@ -36,6 +36,8 @@ steps:
     repository: 'arjitazurecontainers'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: 'java_sample$(Build.BuildId)'
+
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
