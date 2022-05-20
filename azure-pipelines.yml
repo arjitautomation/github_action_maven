@@ -33,7 +33,7 @@ steps:
   inputs:
     containerRegistry: 'docker'
     repository: 'java_sample'
-    command: 'build'
+    command: 'push'
     Dockerfile: '**/Dockerfile'
 
 - task: PublishPipelineArtifact@0
