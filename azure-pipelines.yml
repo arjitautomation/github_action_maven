@@ -29,6 +29,13 @@ steps:
     artifactsFeeds: 'DevOps'
     mavenServiceConnections: 'maven'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker'
+    repository: 'java_sample'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
   inputs:
