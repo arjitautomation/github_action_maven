@@ -12,17 +12,6 @@ pool:
 
 steps:
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonar'
-    organization: 'anshikasaxena0912'
-    scannerMode: 'Other'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner,
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.projectKey=anshikasaxena0912_testing
-      sonar.projectName=testing
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -32,16 +21,23 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
+    #sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
     goals: 'package'
-    
 - task: MavenAuthenticate@0
   inputs:
     artifactsFeeds: 'DevOps'
-- task: SonarCloudPublish@1
+    mavenServiceConnections: 'maven'
+
+
+- task: Docker@2
   inputs:
-    pollingTimeoutSec: '300'
+    containerRegistry: 'docker'
+    repository: 'arjitazurecontainers'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'java_sample$(Build.BuildId)'
+
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
