@@ -25,11 +25,6 @@ steps:
     #sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
     goals: 'package'
-- task: MavenAuthenticate@0
-  inputs:
-    artifactsFeeds: 'DevOps'
-    mavenServiceConnections: 'maven'
-
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
