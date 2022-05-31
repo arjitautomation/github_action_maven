@@ -31,15 +31,6 @@ steps:
     mavenServiceConnections: 'maven'
 
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker'
-    repository: 'arjitazurecontainers'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: 'java_sample$(Build.BuildId)'
-
-
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
   inputs:
