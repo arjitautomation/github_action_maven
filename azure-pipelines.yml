@@ -14,8 +14,8 @@ steps:
 
 - task: MavenAuthenticate@0
   inputs:
-    artifactsFeeds: 'DevOps'
-    mavenServiceConnections: 'maven_devops'
+    artifactsFeeds: 'test'
+    mavenServiceConnections: 'test_maven'
 
 - task: Maven@3
   inputs:
