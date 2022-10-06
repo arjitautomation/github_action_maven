@@ -12,6 +12,11 @@ pool:
 
 steps:
 
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'DevOps'
+    mavenServiceConnections: 'maven'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -24,10 +29,6 @@ steps:
     #sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
     goals: 'deploy'
-- task: MavenAuthenticate@0
-  inputs:
-    artifactsFeeds: 'DevOps'
-    mavenServiceConnections: 'maven'
 
 
 - task: PublishPipelineArtifact@0
