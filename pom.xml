@@ -9,15 +9,15 @@
     <version>3.1.0-SNAPSHOT</version>
     <distributionManagement>
     <repository>
-  <id>DevOps</id>
-  <url>https://pkgs.dev.azure.com/anshikasaxena0912/_packaging/DevOps/maven/v1</url>
+  <id>test</id>
+  <url>https://pkgs.dev.azure.com/anshikasaxena0912/65a4d0f9-12e5-4ee5-a424-81f35e0b905d/_packaging/test/maven/v1</url>
   <releases>
     <enabled>true</enabled>
   </releases>
   <snapshots>
     <enabled>true</enabled>
   </snapshots>
-</repository>      
+</repository>     
     </distributionManagement>
     <build>
         <plugins>
