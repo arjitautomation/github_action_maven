@@ -23,7 +23,7 @@ steps:
     effectivePomSkip: false
     #sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-    goals: 'package'
+    goals: 'deploy'
 - task: MavenAuthenticate@0
   inputs:
     artifactsFeeds: 'DevOps'
