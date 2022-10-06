@@ -15,20 +15,19 @@ steps:
 - task: MavenAuthenticate@0
   inputs:
     artifactsFeeds: 'DevOps'
-    mavenServiceConnections: 'maven'
+    mavenServiceConnections: 'maven_devops'
 
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'deploy'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    #sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-    goals: 'deploy'
+    sonarQubeRunAnalysis: false
 
 
 - task: PublishPipelineArtifact@0
