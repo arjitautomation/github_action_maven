@@ -6,7 +6,7 @@
 
     <groupId>com.anshika</groupId>
     <artifactId>java-anshika-app</artifactId>
-    <version>2.1.0-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
     <distributionManagement>
     <repository>
   <id>DevOps</id>
