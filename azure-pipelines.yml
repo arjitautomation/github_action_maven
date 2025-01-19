@@ -12,33 +12,36 @@ pool:
 
 steps:
 
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'test'
+    mavenServiceConnections: 'test_maven'
+- task: SonarQubePrepare@7
+  inputs:
+    SonarQube: 'sonar-docker'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'maven'
+    cliProjectName: 'maven'
+    cliSources: '.'
+    extraProperties: |
+      sonar.javabinaries=.
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'deploy'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    #sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-    goals: 'package'
-- task: MavenAuthenticate@0
+    sonarQubeRunAnalysis: true
+
+- task: SonarQubePublish@7
   inputs:
-    artifactsFeeds: 'DevOps'
-    mavenServiceConnections: 'maven'
-
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker'
-    repository: 'arjitazurecontainers'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: 'java_sample$(Build.BuildId)'
-
-
+    pollingTimeoutSec: '300'
 - task: PublishPipelineArtifact@0
   displayName: 'Publish pipeline artifact'
   inputs:
