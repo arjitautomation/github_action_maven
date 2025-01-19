@@ -26,6 +26,7 @@ steps:
     cliSources: '.'
     extraProperties: |
       sonar.javabinaries=.
+  timeoutInMinutes: 5    
 
 - task: Maven@3
   inputs:
